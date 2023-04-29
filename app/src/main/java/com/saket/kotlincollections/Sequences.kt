@@ -29,23 +29,30 @@ class Sequences {
     from chunks
      */
 
-    //from elements
+    // from elements
     val numberSequences = sequenceOf(1, 3, 4, 5, 6)
 
-    //from iterables
-    val myIterables = listOf("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+    // from iterables
+    val myIterables = listOf(
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    )
     val daysSequences = myIterables.asSequence()
 
-    //from function
+    // from function
     /*
     To build a sequence based on a function, call generateSequence() with this function as an argument.
     Optionally, you can specify the first element as an explicit value or a result of a function call.
     The sequence generation stops when the provided function returns null.
      */
-    val infinteNumbersSequences = generateSequence(1) { it + 2}
+    val infinteNumbersSequences = generateSequence(1) { it + 2 }
 
-    val finiteNumbersSequences = generateSequence(1) { if (it < 9) it +2 else null }
-
+    val finiteNumbersSequences = generateSequence(1) { if (it < 9) it + 2 else null }
 
     fun testSequences() {
         /*
@@ -66,7 +73,10 @@ class Sequences {
          */
         val wordsSequences = words.asSequence()
 
-        val lengthsSequences = wordsSequences.filter { println("Sequence filter: $it"); it.length > 3 }
+        val lengthsSequences = wordsSequences.filter {
+            println("Sequence filter: $it")
+            it.length > 3
+        }
             .map { println("Sequence map: ${it.length}"); it.length }
             .take(4)
 

@@ -1,9 +1,9 @@
 package com.saket.kotlincollections
 
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * Kotlin provides 3 types of collections -
@@ -11,7 +11,8 @@ import androidx.annotation.RequiresApi
  *
  * Collection interface extends iterable interface.
  *
- * Each collection type has 2 implementations, a read-only type and a mutable type.
+ * Each collection type has 2 implementations, a read-only type (immutable)
+ * and a mutable type.
  *
  * In this project i will go hands-on while referring to -
  * https://kotlinlang.org/docs/collections-overview.html
@@ -44,16 +45,16 @@ class MainActivity : AppCompatActivity() {
             .forEach { println("$it") }
 */
 
-        //Map gives many methods to retrieve key/values of elements
+        // Map gives many methods to retrieve key/values of elements
 /*
         val familyDetails = getFamilyDetails()
         println("Family members : ${familyDetails.keys}")
         println("Personnummers : ${familyDetails.values}")
 */
 
-        //Two maps containing the equal pairs are equal regardless of the pair order.
+        // Two maps containing the equal pairs are equal regardless of the pair order.
 
-        //Mutable maps
+        // Mutable maps
         /*
         MutableMap is a Map with map write operations, for example,
         you can add a new key-value pair or update the value associated with the given key.
@@ -71,18 +72,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     /*
-        List can be an indexed collection. It can hold duplicate values as well.
+        List are an indexed collection. It can hold duplicate values as well.
         Returns read-only list. No item can be added/removed/updated in the list.
 
-        In Kotlin, the default implementation of List is ArrayList which you can think of as a resizable array.
+        In Kotlin, the default implementation of List is ArrayList which you can
+        think of as a resizable array.
      */
     fun getTasksList() = listOf("Exercise", "Study", "Fix bike", "Clean house", "Play", "Exercise")
 
-    //Returns mutable list.
+    // Returns mutable list.
     fun getCompletedTasksList() = mutableListOf("Wash clothes", "Return books")
 
     /*
-    Returns set (read-only) of days of the week.
     Set is a collection of unique elements. It can contain only one null item.
 
     Here although the set contains 2 instances of Sunday, but when it prints out the values, it only
@@ -98,19 +99,31 @@ class MainActivity : AppCompatActivity() {
     so calling such functions on it returns unpredictable results.
     However, HashSet requires less memory to store the same number of elements.
      */
-    fun getDaysOfTheWeek() = setOf("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
-        "Sunday")
+    fun getDaysOfTheWeek() = setOf(
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+    )
 
     /*
-    Map<K, V> is not an inheritor of the Collection interface;
+    Map<K, V> is NOT an inheritor of the Collection interface;
     however, it's a Kotlin collection type as well.
 
     The default implementation of Map – LinkedHashMap – preserves the order of elements insertion when iterating the map.
     In turn, an alternative implementation – HashMap – says nothing about the elements order.
      */
-    fun getFamilyDetails() = mapOf("Saket" to "8307189251", "Sweta" to "8811290504",
-        "Bunny" to "1609300155", "Daddy" to "5001131111", "Mummy" to "5911010000",
-        "Aniket" to "8408274321", "Vishket" to "8903081234")
-
-
+    fun getFamilyDetails() = mapOf(
+        "Saket" to "8307189251",
+        "Sweta" to "8811290504",
+        "Bunny" to "1609300155",
+        "Daddy" to "5001131111",
+        "Mummy" to "5911010000",
+        "Aniket" to "8408274321",
+        "Vishket" to "8903081234"
+    )
 }
